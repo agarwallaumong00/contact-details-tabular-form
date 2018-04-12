@@ -1,0 +1,94 @@
+.main-div {
+    width: 95%;
+    height: 100%;
+    /* box-shadow: 1px 2px 3px 1px gainsboro; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background: lightblue; */
+    padding: 20px;
+}
+
+table {
+    padding: 20px;
+    text-align: center;
+    box-shadow: 1px 2px 3px 1px gainsboro;
+    min-width: 100%;
+}
+
+th, td {
+    width: 25%;
+    padding: 20px 10px;
+    font-weight: 400;
+}
+
+thead {
+    background: lightsteelblue;
+}
+
+tbody {
+    background: gainsboro;
+}
+
+/* thead tr th {
+    height: 90px;
+} */
+
+tbody tr td {
+    height: 50px;
+}
+
+md-input-container {
+    margin: 20px 0;
+    height: 0;
+    text-align: left;
+    font-size: 13px;
+    width: 180px;
+}
+
+.info-div {
+    display: flex;
+    align-items: center;
+    margin-top: 35px;
+    padding: 0px 25px;
+    justify-content: center;
+}
+
+.page-info {
+    display: flex;
+    align-items: center;
+}
+
+.nav-div {
+    width: 30%;
+    box-shadow: 1px 1px 1px 1px gainsboro;
+}
+
+.page-info input {
+    width: 41px;
+}
+
+.page-info span {
+    margin: 0px 10px;
+}
+
+.font13 {
+    font-size: 13px;
+    position: absolute;
+    right: 50px;
+    top: 75px;
+}
+
+.disable {
+    pointer-events: none;
+    background: grey !important;
+}
+
+.not-available {
+    color: red;
+}
+
+.bottom-margin {
+    margin: 15px 0;
+}

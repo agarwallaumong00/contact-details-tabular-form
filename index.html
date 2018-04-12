@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Agent Desk</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="app.css"/>
+    </head>
+
+    <body ng-app="agentDesk">
+        <div ng-controller="agentDeskController">
+            <div class="main-div">
+                <div class="info-div">
+                    <div class="nav-div" layout="row" layout-align="space-between">
+                        <md-button class="md-primary md-raised" ng-class="{disable: currentPage === 1}" ng-click="gotoPrevPage()">Prev</md-button>
+                        <div class="page-info">
+                            <span>Page </span>
+                            <input type="number" ng-model="currentPage" ng-keypress="gotoPage($event, currentPage)" />
+                            <span> of {{totalPage}}</span>
+                        </div>
+                        <md-button class="md-primary md-raised" ng-class="{disable: currentPage === totalPage}" ng-click="gotoNextPage()">Next</md-button>
+                    </div>
+                </div>
+                <div class="font13">
+                    <span>Showing {{startingIndex + 1}} - {{lastIndex}} of 4000 results</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <div>
+                                    <div>First Name</div>
+                                    <md-input-container md-no-float>
+                                        <input placeholder="Filter by First Name" ng-model="firstName" />
+                                    </md-input-container>
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <div>Last Name</div>
+                                    <md-input-container md-no-float>
+                                        <input placeholder="Filter by Last Name" ng-model="lastName" />
+                                    </md-input-container>
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <div>Email</div>
+                                    <md-input-container md-no-float>
+                                        <input placeholder="Filter by Email" ng-model="email" />
+                                    </md-input-container>
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <div>Agency Name</div>
+                                    <md-input-container md-no-float>
+                                        <input placeholder="Filter by Agency Name" ng-model="agencyName" />
+                                    </md-input-container>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in pageData 
+                                    | filter: {firstname: firstName}
+                                    | filter: {lastname: lastName}
+                                    | filter: {email: email}
+                                    | filter: {agency_name: agencyName}">
+                            <td>
+                                <span ng-if="data.firstname">{{data.firstname}}</span>
+                                <span class="not-available" ng-if="!data.firstname">NA</span>
+                            </td>
+                            <td>
+                                <span ng-if="data.lastname">{{data.lastname}}</span>
+                                <span class="not-available" ng-if="!data.lastname">NA</span>
+                            </td>
+                            <td>
+                                <span ng-if="data.email">{{data.email}}</span>
+                                <span class="not-available" ng-if="!data.email">NA</span>
+                            </td>
+                            <td>
+                                <span ng-if="data.agency_name">{{data.agency_name}}</span>
+                                <span class="not-available" ng-if="!data.agency_name">NA</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="info-div bottom-margin">
+                    <div class="nav-div" layout="row" layout-align="space-between">
+                        <md-button class="md-primary md-raised" ng-class="{disable: currentPage === 1}" ng-click="gotoPrevPage()">Prev</md-button>
+                        <div class="page-info">
+                            <span>Page </span>
+                            <input type="number" ng-model="currentPage" ng-keypress="gotoPage($event, currentPage)" />
+                            <span> of {{totalPage}}</span>
+                        </div>
+                        <md-button class="md-primary md-raised" ng-class="{disable: currentPage === totalPage}" ng-click="gotoNextPage()">Next</md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-aria.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min.js"></script>
+        <script src="app.js"></script>
+        <script src="app.controller.js"></script>
+        <script type="text/javascript" src="jsonData.json"></script>
+    </body>
+</html>
